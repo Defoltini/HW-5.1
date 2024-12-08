@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.DragAndDropOptions;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.*;
@@ -10,12 +11,14 @@ public class MoveFigureTest {
         open("https://the-internet.herokuapp.com/drag_and_drop");
         SelenideElement one = $("#column-a").shouldBe(Condition.visible);
         SelenideElement two = $("#column-b").shouldBe(Condition.visible);
-        actions()
+       /* actions()
                 .clickAndHold(one)
                 .moveToElement(two)
                 .release()
                 .build()
-                .perform();
+                .perform(); */
+
+        $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
         $("#column-b").shouldHave(Condition.text("A"));
         sleep(5000);
     }

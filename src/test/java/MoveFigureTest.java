@@ -18,9 +18,8 @@ public class MoveFigureTest {
                 .build()
                 .perform(); */
 
-        $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
+        $(one).dragAndDrop(DragAndDropOptions.to(two));
         $("#column-b").shouldHave(Condition.text("A"));
-        sleep(5000);
     }
 }
 
